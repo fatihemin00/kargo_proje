@@ -1,0 +1,22 @@
+﻿@model kargo_takip1.Models.urunler
+@{
+    ViewBag.Title = "urunekle1";
+}
+
+<h2>urun Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("urunekle1", "home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Ürün Adı  Giriniz</label>
+                    <input type="text" name="urunAdi" class="form-control" />
+                </div>
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,144 @@
+﻿@model kargo_takip1.Models.GelenKargoTakip
+@{
+    ViewBag.Title = "urunEkle";
+    List<SelectListItem> sirketList = new List<SelectListItem>();
+    sirketList = ViewBag.sirketler;
+    List<SelectListItem> urunList = new List<SelectListItem>();
+    urunList = ViewBag.urunler;
+    List<SelectListItem> kargolist = new List<SelectListItem>();
+    kargolist = ViewBag.kargolar;
+    List<SelectListItem> kullanıcılist = new List<SelectListItem>();
+    kullanıcılist = ViewBag.kullanıcılar;
+    List<SelectListItem> kullanıcılist1 = new List<SelectListItem>();
+    kullanıcılist1 = ViewBag.kullanıcılar1;
+}
+<h2 style="text-align:center">Ürün Düzenleme Sayfası</h2>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="gelenkargoFormguncelle">
+                    <div class="form-group">
+                        @*<label> ıd Giriniz</label>*@
+                        <input hidden type="text" name="Id" class="form-control" value="@Model.Id" />
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label> Gönderilen Kargoyu Seçiniz</label>
+                        <select class="form-control" name="kargoID">
+                            <option selected value="@Model.kargoID" >@Model.KargoFirmaları.KargoAdi</option>
+                            @foreach (var item in kargolist)
+                            {
+                                <option value="@item.Value"> @item.Text </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label> Gelen Ürünü  Seçiniz</label>
+                        <select class="form-control" name="urunID">
+                            <option selected value="@Model.urunID" >@Model.Urunler.urunAdi</option>
+                            @foreach (var item in urunList)
+                            {
+                                <option value="@item.Value"> @item.Text </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label> Teslim Alan kullanıcıyı Seçiniz</label>
+                        <select class="form-control" name="teslimAlanID">
+                            <option selected value="@Model.teslimAlanID" >@Model.Kullanıcılar.kullaniciAdiSoyadi</option>
+                            @foreach (var item in kullanıcılist)
+                            {
+                                <option value="@item.Value"> @item.Text </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label> Gelen Tarihi Giriniz</label>
+                        <input type="text" name="gelenTarih" class="form-control" value="@Model.gelenTarih" />
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label> İrsaliye Numarası Giriniz</label>
+                        <input type="text" name="irsaliyeNo" class="form-control" value="@Model.irsaliyeNo" />
+                    </div>
+                    <div class="form-group">
+                        <label>Durumunu Giriniz</label>
+                        <input type="text" name="durum" class="form-control" value="@Model.durum" />
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label> Kontrol Eden kullanıcıyı Seçiniz</label>
+                        <select class="form-control" name="kontrolEdenID">
+                            <option selected value="@Model.kontrolEdenID" > @Model.Kullanıcılar1.kullaniciAdiSoyadi</option>
+                            @foreach (var item in kullanıcılist1)
+                            {
+                                <option value="@item.Value"> @item.Text </option>
+                            }
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <br />
+                        <label>Gönderen Firmayı Seçiniz</label>
+                        <select class="form-control" name="gonderenSirketID">
+                            <option selected value="@Model.gonderenSirketID" >@Model.Sirketler.sirketAdi</option>
+                            @foreach (var item in sirketList)
+                            {
+                                <option value="@item.Value"> @item.Text </option>
+                            }
+                        </select>
+                    </div>
+                    <br />
+                    <button class="btn btn-primary" type="submit"> kaydet</button>
+                </form>
+</div>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('gelenkargoFormguncelle');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Formun gönderilmesini engeller
+                var focusableElements = form.querySelectorAll('input, select, textarea'); // Form içindeki tüm giriş elemanlarını al
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement); // Mevcut odaklı elemanın indeksini al
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus(); // Bir sonraki elemanı odakla
+                } else {
+                    focusableElements[0].focus(); // Son elemandaysanız, ilk elemana geri dön
+                }
+            }
+        });
+
+        // Formu AJAX ile gönder
+        $('#gelenkargoFormguncelle').on('submit', function (e) {
+            e.preventDefault(); // Formun normal şekilde gönderilmesini engelle
+
+            var form = $(this);
+            var actionUrl = form.attr('action') || '/home/guncelle'; // Eğer formun `action` özelliği varsa kullan, yoksa varsayılan URL'yi kullan
+
+            $.ajax({
+                type: 'POST',
+                url: actionUrl,
+                data: form.serialize(), // Formun tüm verilerini seri hale getir
+                success: function (response) {
+                    // Başarılı yanıt durumunda yapılacak işlemler
+                    alert('Veri başarıyla kaydedildi!');
+                    // İsterseniz burada sayfayı yenileyebilir veya başka bir işlem yapabilirsiniz
+                    window.location.href = '/home/gelenkargolarılistele'; // Formu sıfırla (isteğe bağlı)
+                },
+                error: function (xhr, status, error) {
+                    // Hata durumunda yapılacak işlemler
+                    alert('Bir hata oluştu: ' + error);
+                }
+            });
+        });
+    });
+</script>
+</script>
+

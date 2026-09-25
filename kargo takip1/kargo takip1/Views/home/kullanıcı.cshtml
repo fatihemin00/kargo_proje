@@ -1,0 +1,22 @@
+﻿@model kargo_takip1.Models.kullanıcılar
+@{
+    ViewBag.Title = "kullanıcı";
+}
+
+<h2>Kullanıcı Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("kullanıcı", "home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Kullanıcı Adı Soyad Giriniz</label>
+                    <input type="text" name="kullaniciAdi" class="form-control" />
+                </div>
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </div>
+        </div>
+    </div>
+}
+

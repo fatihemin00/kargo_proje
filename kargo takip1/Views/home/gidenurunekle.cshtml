@@ -1,0 +1,79 @@
+﻿@model kargo_takip1.Models.gidenUrunlerBilgi
+@{
+    ViewBag.Title = "kargoekle";
+        List<SelectListItem> sirketList = new List<SelectListItem>();
+    sirketList = ViewBag.sirketler;
+}
+
+<h2 style="text-align:center">Giden Ürün Ekleme Sayfası</h2>
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="gidenurun">
+                <div class="form-group">
+                    <label>Ürün Adı  Giriniz</label>
+                    <input type="text" name="GidenurunAdi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Giden Ürünün Seri No  Giriniz</label>
+                    <input type="text" name="GidenurunSeriNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> Gönderilen Şirketi Seçiniz</label>
+                    <select class="form-control" name="gidenFirma">
+                        <option selected value="0" disabled>Şirket seçiniz</option>
+                        @foreach (var item in sirketList)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('gidenurun');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        // AJAX ile form verilerini gönderme
+        $("#gidenurun").submit(function (e) {
+            e.preventDefault(); // Formun varsayılan submit işlemini engelle
+
+            var form = $(this);
+            var actionUrl = '/home/gidenurunekle'; // Formun gönderileceği URL
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(), // Form verilerini serileştir
+                success: function (data) {
+                    window.location.href = '/home/gidenurunlerlistele'; // Kayıttan sonra yönlendirme
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>
+

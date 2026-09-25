@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c2d2670124414166bb7b55dcae2e1c56" Name="Diagram1">
+        <EntityTypeShape EntityType="goratakipModel.kargoHareket" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="goratakipModel.kargolar" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="goratakipModel.kullanıcılar" Width="1.5" PointX="0.75" PointY="2.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="goratakipModel.sirketler" Width="1.5" PointX="0.75" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="goratakipModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="goratakipModel.urunler" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_kargolar" ManuallyRouted="false" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_kullanıcılar" ManuallyRouted="false" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_kullanıcılar1" ManuallyRouted="false" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_sirketler" ManuallyRouted="false" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_sirketler1" ManuallyRouted="false" />
+        <AssociationConnector Association="goratakipModel.FK_kargoHareket_urunler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

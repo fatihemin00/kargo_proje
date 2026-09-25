@@ -1,0 +1,200 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Gora Kargo Takip</title>
+    <!-- Font Awesome Icons -->
+
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <!-- IonIcons -->
+    <link href="~/Content/ionicons.min.css" rel="stylesheet" />
+    <!-- Theme style -->
+    <link href="~/Content/adminlte.min.css" rel="stylesheet" />
+    <!-- Google Font: Source Sans Pro -->
+    <link href="~/Content/css1.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.3/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.3/js/jquery.dataTables.min.js"></script>
+    </head>
+<!--
+BODY TAG OPTIONS:
+=================
+Apply one or more of the following classes to to the body tag
+to get the desired effect
+|---------------------------------------------------------|
+|LAYOUT OPTIONS | sidebar-collapse                        |
+|               | sidebar-mini                            |
+|---------------------------------------------------------|
+-->
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
+        <!-- Navbar -->
+        <!-- /.navbar -->
+        <!-- Main Sidebar Container -->
+        <aside class="main-sidebar sidebar-dark-primary elevation-4">
+            <!-- Brand Logo -->
+            <a href="/home/Index" class="brand-link">
+                <img src="~/res/logo.png"" alt="Gora Logo" class="brand-image img-circle elevation-3"  style="opacity: .8">
+                <span class="brand-text font-weight-light"> Kargo Takip</span>
+            </a>
+            <!-- Sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel (optional) -->
+                <!-- Sidebar Menu -->
+                <nav class="mt-2">
+                    <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+                        <!-- Add icons to the links using the .nav-icon class
+        with font-awesome or any other icon font library -->
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-inbox"></i>
+                                <p>
+                                    Gelen Kargo
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/home/gelenkargolarılistele" class="nav-link">
+                                        <i class="far fa-list-alt nav-icon"></i>
+                                        <p>Gelen Kargo Listele</p>
+                                    </a>
+                                </li>
+                                @if (User.IsInRole("A") || User.IsInRole("B"))
+                                {
+                                    <li class="nav-item">
+                                        <a href="/home/gelenKargoEkle" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p>Gelen Kargo Ekle</p>
+                                        </a>
+                                    </li>
+                                }
+                                
+                            </ul>
+                        </li>
+
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-inbox"></i>
+                                <p>
+                                    Giden Kargo
+                                    <i class="fas fa-angle-left right"></i>
+                                </p>
+                            </a>
+                            <ul class="nav nav-treeview">
+                                <li class="nav-item">
+                                    <a href="/home/gidenkargolarılistele" class="nav-link">
+                                        <i class="far fa-list-alt nav-icon"></i>
+                                        <p>Giden Kargo Listele</p>
+                                    </a>
+                                </li>
+                               @if (User.IsInRole("A") || User.IsInRole("B"))
+                               {
+                                    <li class="nav-item">
+                                        <a href="/home/gidenKargoEkle" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p>Giden Kargo Ekle</p>
+                                        </a>
+                                    </li>
+                                }
+                                  
+                                 </ul>
+                        </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-inbox"></i>
+                                    <p>
+                                        Envanter ekle
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/home/sirketlerlistele" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p>Cari Kart Ekle </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/home/kargolistele" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p> Kargo Firmaları Ekle </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/home/kullanicilistele" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p> Kullanıcı Ekle </p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#" class="nav-link">
+                                    <i class="nav-icon fas fa-inbox"></i>
+                                    <p>
+                                        Ürünler
+                                        <i class="fas fa-angle-left right"></i>
+                                    </p>
+                                </a>
+                                <ul class="nav nav-treeview">
+                                    <li class="nav-item">
+                                        <a href="/home/urunlerlistele" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p>  Gelen Ürün Ekle </p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="/home/gidenurunlerlistele" class="nav-link">
+                                            <i class="fas fa-plus-circle nav-icon"></i>
+                                            <p>Giden Ürünler  Ekle</p>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                        <li class="nav-item">
+                            <a href="/Account/Login" class="nav-link">
+                                <i class="fas fa-plus-circle nav-icon"></i>
+                                <p>Çıkış Yap</p>
+                            </a>
+                        </li>
+
+</nav>
+                <!-- /.sidebar-menu -->
+            </div>
+            <!-- /.sidebar -->
+        </aside>
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Main content -->
+            <div class="content">
+                @RenderBody()
+                <!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+    </div>
+    
+    <script src="~/scripts/jquery.min.js"></script>
+    <script src="~/scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/adminlte.js"></script>
+    <script src="~/scripts/Chart.min.js"></script>
+    <script src="~/scripts/demo.js"></script>
+    <script src="~/scripts/dashboard3.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js" integrity="sha512-2ImtlRlf2VVmiGZsjm9bEyhjGW4dU7B6TNwh/hx/iSByxNENtj3WVE6o/9Lj4TJeVXPi4bnOIMXFIJJAeufa0A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>

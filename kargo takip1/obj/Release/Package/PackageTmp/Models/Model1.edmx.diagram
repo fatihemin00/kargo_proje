@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="da385f54741e46229098b5684621a403" Name="Diagram1">
+        <EntityTypeShape EntityType="goraKargoTakipModel.GelenKargoTakip" Width="1.5" PointX="3" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.GidenKargoTakip" Width="1.5" PointX="6" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.gidenUrunlerBilgi" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.KargoFirmaları" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.Kullanıcılar" Width="1.5" PointX="0.75" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.Sirketler" Width="1.5" PointX="0.75" PointY="8.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.sysdiagrams" Width="1.5" PointX="2.75" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="goraKargoTakipModel.Urunler" Width="1.5" PointX="0.75" PointY="12.375" IsExpanded="true" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gelenKargo_kargolar" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gelenKargo_kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gelenKargo_kullanici1" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gelenKargo_sirketler" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_GelenKargoTakip_Urunler" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gidenKargo_kargolar" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gidenKargo_kullanici" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gidenKargo_sirketler" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_GidenKargoTakip_gidenUrunlerBilgi" ManuallyRouted="false" />
+        <AssociationConnector Association="goraKargoTakipModel.FK_gidenUrunlerBilgi_Sirketler" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

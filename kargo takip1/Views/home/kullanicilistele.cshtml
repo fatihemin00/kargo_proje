@@ -1,0 +1,119 @@
+﻿@using kargo_takip1.Models
+@model List<kargo_takip1.Models.Kullanıcılar>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcılar  Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        table {
+            width: 100%; /* Tablo genişliğini %100 yaparak kapsayıcının tamamını kaplamasını sağlar */
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px; /* Paddingi artırarak hücre içi boşlukları genişletir */
+            text-align: left;
+            font-size: 14px; /* Yazı boyutunu ayarlar */
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .search-box {
+            margin-bottom: 10px;
+            width: 200px; /* Arama kutusunun genişliği */
+            padding: 5px; /* Paddingi ayarlar */
+        }
+
+        .button-container {
+            text-align: center; /* Butonları ortalar */
+            margin-bottom: 20px; /* Butonlar ile tablo arasında boşluk bırakır */
+        }
+
+        .table-container {
+            max-width: 80%; /* Tablo kapsayıcısının genişliğini %80 olarak ayarlar */
+            margin: 0 auto; /* Tablo kapsayıcısını ortalar */
+            overflow-x: auto; /* Tablo genişliği fazla olduğunda yatay kaydırma çubuğu ekler */
+        }
+
+        .btn {
+            margin: 5px; /* Butonlar arasında boşluk bırakır */
+        }
+    </style>
+</head>
+<body>
+
+    @{
+        ViewBag.Title = "kullanıcılistele";
+    }
+    <h2 style="text-align:center">Kullanıcılar  Sayfası</h2>
+
+    <div class="button-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="Ara...">
+        @if (User.IsInRole("A"))
+        {
+            <a href="/home/kullanıcı" class="btn btn-primary"> Kullanıcı Ekle</a>
+        }
+        
+    </div>
+
+    <div class="table-container">
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr>
+                    <th><strong>Kullanıcı Adı Soyadı</strong></th>
+                    <th><strong>Kullanıcı MailAdresi</strong></th>
+                    @if (User.IsInRole("A"))
+                    {
+                        <th><strong>DÜZENLE</strong></th>
+                        <th><strong>SİL</strong></th>
+                    }
+                   
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.kullaniciAdiSoyadi</td>
+                        <td>@item.kullaniciMailAdresi</td>
+                        @if (User.IsInRole("A"))
+                        {
+                            <td><a href="/home/guncelle4/@item.Id " class="btn btn-danger"> Düzenle</a></td>
+                            <td>@Html.ActionLink("sil", "sil3", new { id = item.Id }, new { @class = "btn btn-danger", onclick = "return confirm('Silmek istiyor musunuz?');" })</td>
+                        }
+                        
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Arama işlevselliği
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#myTable tbody tr');
+
+            rows.forEach(function (row) {
+                var cells = row.querySelectorAll('td');
+                var match = false;
+                cells.forEach(function (cell) {
+                    if (cell.textContent.toLowerCase().includes(input)) {
+                        match = true;
+                    }
+                });
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>
+
+

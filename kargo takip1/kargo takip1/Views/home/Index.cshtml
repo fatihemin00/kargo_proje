@@ -1,0 +1,49 @@
+﻿@using kargo_takip1.Models
+@model List<kargoHareket>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gora Kargo Takip</h2>
+<br />
+<a href="/home/urunEkle" class="btn btn-primary"> ürün ekle</a>
+<table class= "table table-bordered">
+    <tr>
+        <td> Id </td>
+        <td> Kargo adı</td>
+        <td> Gelen Urun Kontrol</td>
+        <td>  Gönderen kişiyi giriniz</td>
+        <td>  alan kişiyi giriniz</td>
+        <td> Gönderen Şirketi giriniz</td>
+        <td> Alan Şirketi giriniz</td>
+        <td> İrsaliye Numarası</td>
+        <td> Gönderilen Tarih</td>
+        <td> Gelen Tarih </td>
+        <td> Durum</td>
+        <td> Açıklama</td>
+        <td> sil</td>
+        <td> Düzenle</td>
+
+
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.ıd</td>
+            <td>@item.kargolar.kargoAdi</td>
+            <td>@item.urunler.urunAdi</td>
+            <td>@item.kullanıcılar.kullaniciAdi</td>
+            <td>@item.kullanıcılar1.kullaniciAdi</td>
+            <td>@item.sirketler.sirketadi</td>
+            <td>@item.sirketler1.sirketadi</td>
+            <td>@item.irsaliyeNumarasi</td>
+            <td>@item.gonderilenTarih</td>
+            <td>@item.gelenTarih</td>
+            <td>@item.Durum</td>
+            <td>@item.aciklama</td>
+            <td>@Html.ActionLink("sil","sil",new {id=item.ıd }, new { @class = "btn btn-danger",onclick=" return confirm 'silmek istiyormusun' "})</td>
+            <td><a href="/home/guncelle/@item.ıd " class="btn btn-danger"> Düzenle</a></td>
+        </tr>
+    }
+</table>
+

@@ -1,0 +1,90 @@
+﻿@model kargo_takip1.Models.gidenUrunlerBilgi
+@{
+    ViewBag.Title = "güncelle";
+    List<SelectListItem> sirketList = new List<SelectListItem>();
+    sirketList = ViewBag.sirketler;
+}
+<h2 style="text-align:center">Ürün Düzenleme Sayfası</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="gidenurunlerguncelle">
+                <div class="form-group">
+                    @*<label> ıd Giriniz</label>*@
+                    <input hidden type="text" name="Id" class="form-control" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <label>Giden Ürünün adı  Giriniz</label>
+                    <input type="text" name="GidenurunAdi" class="form-control" value="@Model.GidenurunAdi" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> Şirket Adresi Giriniz</label>
+                    <input type="text" name="GidenurunSeriNo" class="form-control" value="@Model.GidenurunSeriNo" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Gönderen Firmayı Seçiniz</label>
+                    <select class="form-control" name="gidenFirma">
+                        <option selected value="@Model.gidenFirma" >@Model.Sirketler.sirketAdi</option>
+                        @foreach (var item in sirketList)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+
+                <br />
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('gidenurunlerguncelle');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Formun gönderilmesini engeller
+                var focusableElements = form.querySelectorAll('input, select, textarea'); // Form içindeki tüm giriş elemanlarını al
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement); // Mevcut odaklı elemanın indeksini al
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus(); // Bir sonraki elemanı odakla
+                } else {
+                    focusableElements[0].focus(); // Son elemandaysanız, ilk elemana geri dön
+                }
+            }
+        });
+
+        // Formu AJAX ile gönder
+        $('#gidenurunlerguncelle').on('submit', function (e) {
+            e.preventDefault(); // Formun normal şekilde gönderilmesini engelle
+
+            var form = $(this);
+            var actionUrl = form.attr('action') || '/home/guncelle5'; // Eğer formun `action` özelliği varsa kullan, yoksa varsayılan URL'yi kullan
+
+            $.ajax({
+                type: 'POST',
+                url: actionUrl,
+                data: form.serialize(), // Formun tüm verilerini seri hale getir
+                success: function (response) {
+                    // Başarılı yanıt durumunda yapılacak işlemler
+                    alert('Veri başarıyla kaydedildi!');
+                    // İsterseniz burada sayfayı yenileyebilir veya başka bir işlem yapabilirsiniz
+                    window.location.href = '/home/gidenurunlerlistele'; // Formu sıfırla (isteğe bağlı)
+                },
+                error: function (xhr, status, error) {
+                    // Hata durumunda yapılacak işlemler
+                    window.location.href = '/home/gidenurunlerlistele';
+                }
+            });
+        });
+    });
+</script>
+</script>
+
+

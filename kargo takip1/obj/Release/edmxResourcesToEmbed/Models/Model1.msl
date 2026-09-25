@@ -1,0 +1,97 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="goraKargoTakipModelStoreContainer" CdmEntityContainer="goraKargoTakipEntities2">
+    <EntitySetMapping Name="GelenKargoTakip">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.GelenKargoTakip">
+        <MappingFragment StoreEntitySet="GelenKargoTakip">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kargoID" ColumnName="kargoID" />
+          <ScalarProperty Name="teslimAlanID" ColumnName="teslimAlanID" />
+          <ScalarProperty Name="gelenTarih" ColumnName="gelenTarih" />
+          <ScalarProperty Name="irsaliyeNo" ColumnName="irsaliyeNo" />
+          <ScalarProperty Name="durum" ColumnName="durum" />
+          <ScalarProperty Name="kontrolEdenID" ColumnName="kontrolEdenID" />
+          <ScalarProperty Name="gonderenSirketID" ColumnName="gonderenSirketID" />
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GidenKargoTakip">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.GidenKargoTakip">
+        <MappingFragment StoreEntitySet="GidenKargoTakip">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kargoID" ColumnName="kargoID" />
+          <ScalarProperty Name="gidenFirmaID" ColumnName="gidenFirmaID" />
+          <ScalarProperty Name="gonderilenTarih" ColumnName="gonderilenTarih" />
+          <ScalarProperty Name="gonderenKisi" ColumnName="gonderenKisi" />
+          <ScalarProperty Name="acıklama" ColumnName="acıklama" />
+          <ScalarProperty Name="irsaliyeNo" ColumnName="irsaliyeNo" />
+          <ScalarProperty Name="urunID" ColumnName="urunID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="gidenUrunlerBilgi">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.gidenUrunlerBilgi">
+        <MappingFragment StoreEntitySet="gidenUrunlerBilgi">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="GidenurunAdi" ColumnName="GidenurunAdi" />
+          <ScalarProperty Name="GidenurunSeriNo" ColumnName="GidenurunSeriNo" />
+          <ScalarProperty Name="gidenFirma" ColumnName="gidenFirma" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="KargoFirmaları">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.KargoFirmaları">
+        <MappingFragment StoreEntitySet="KargoFirmaları">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="KargoAdi" ColumnName="KargoAdi" />
+          <ScalarProperty Name="KargoilgiliKisi" ColumnName="KargoilgiliKisi" />
+          <ScalarProperty Name="KargoTelNo" ColumnName="KargoTelNo" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Kullanıcılar">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.Kullanıcılar">
+        <MappingFragment StoreEntitySet="Kullanıcılar">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="kullaniciAdiSoyadi" ColumnName="kullaniciAdiSoyadi" />
+          <ScalarProperty Name="kullaniciMailAdresi" ColumnName="kullaniciMailAdresi" />
+          <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+          <ScalarProperty Name="Rol" ColumnName="Rol" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sirketler">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.Sirketler">
+        <MappingFragment StoreEntitySet="Sirketler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="sirketAdi" ColumnName="sirketAdi" />
+          <ScalarProperty Name="sirketAdresi" ColumnName="sirketAdresi" />
+          <ScalarProperty Name="vergiNo" ColumnName="vergiNo" />
+          <ScalarProperty Name="vergiDairesi" ColumnName="vergiDairesi" />
+          <ScalarProperty Name="telefonNo" ColumnName="telefonNo" />
+          <ScalarProperty Name="ilgiliKisi" ColumnName="ilgiliKisi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Urunler">
+      <EntityTypeMapping TypeName="goraKargoTakipModel.Urunler">
+        <MappingFragment StoreEntitySet="Urunler">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="urunAdi" ColumnName="urunAdi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

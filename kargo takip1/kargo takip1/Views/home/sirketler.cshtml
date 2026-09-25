@@ -1,0 +1,22 @@
+﻿@model kargo_takip1.Models.sirketler
+@{
+    ViewBag.Title = "sirketler";
+}
+
+<h2>kargo Ekleme Sayfası</h2>
+<br />
+@using (Html.BeginForm("sirketler", "home", FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>Şirket Firması Giriniz</label>
+                    <input type="text" name="sirketadi" class="form-control" />
+                </div>
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </div>
+        </div>
+    </div>
+}
+

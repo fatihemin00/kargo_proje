@@ -1,0 +1,63 @@
+﻿@model kargo_takip1.Models.Urunler
+@{
+    ViewBag.Title = "urunekle";
+}
+
+<h2 style="text-align:center">Ürün Kategori  Ekleme Sayfası</h2>
+<br />
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="urun1ekleform">
+                    <div class="form-group">
+                        <label>Ürün Adı  Giriniz</label>
+                        <input type="text" name="urunAdi" class="form-control" />
+                    </div>
+                    <button class="btn btn-primary" type="submit"> kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('urun1ekleform');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        // AJAX ile form verilerini gönderme
+        $("#urun1ekleform").submit(function (e) {
+            e.preventDefault(); // Formun varsayılan submit işlemini engelle
+
+            var form = $(this);
+            var actionUrl = '/home/urunekle'; // Formun gönderileceği URL
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(), // Form verilerini serileştir
+                success: function (data) {
+                    window.location.href = '/home/urunlerlistele'; // Kayıttan sonra yönlendirme
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>
+
+
+

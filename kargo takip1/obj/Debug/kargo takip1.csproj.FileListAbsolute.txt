@@ -1,0 +1,254 @@
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\ApplicationInsights.config
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\csc.exe
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\vbc.exe
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.dll.config
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.pdb
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Helpers.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Mvc.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Razor.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Razor.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Helpers.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\bin\System.Web.Mvc.xml
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csprojResolveAssemblyReference.cache
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.dll
+C:\Users\ExpressPC\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.pdb
+D:\kargo takip1\kargo takip1\bin\ApplicationInsights.config
+D:\kargo takip1\kargo takip1\bin\roslyn\csc.exe
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\kargo takip1\kargo takip1\bin\roslyn\System.Collections.Immutable.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\System.Reflection.Metadata.dll
+D:\kargo takip1\kargo takip1\bin\roslyn\vbc.exe
+D:\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe
+D:\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe.config
+D:\kargo takip1\kargo takip1\bin\kargo takip1.dll.config
+D:\kargo takip1\kargo takip1\bin\kargo takip1.dll
+D:\kargo takip1\kargo takip1\bin\kargo takip1.pdb
+D:\kargo takip1\kargo takip1\bin\EntityFramework.dll
+D:\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\kargo takip1\kargo takip1\bin\Microsoft.Web.Infrastructure.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Helpers.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Mvc.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Razor.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.dll
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.dll
+D:\kargo takip1\kargo takip1\bin\EntityFramework.xml
+D:\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.xml
+D:\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Razor.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Helpers.xml
+D:\kargo takip1\kargo takip1\bin\System.Web.Mvc.xml
+D:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csproj.AssemblyReference.cache
+D:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csproj.CoreCompileInputs.cache
+D:\kargo takip1\kargo takip1\obj\Debug\kargo ta.AA7D02C5.Up2Date
+D:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.dll
+D:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.pdb
+G:\kargo takip1\kargo takip1\bin\ApplicationInsights.config
+G:\kargo takip1\kargo takip1\bin\roslyn\csc.exe
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CSharp.Core.targets
+G:\kargo takip1\kargo takip1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+G:\kargo takip1\kargo takip1\bin\roslyn\System.Collections.Immutable.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\System.Reflection.Metadata.dll
+G:\kargo takip1\kargo takip1\bin\roslyn\vbc.exe
+G:\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe
+G:\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe.config
+G:\kargo takip1\kargo takip1\bin\kargo takip1.dll.config
+G:\kargo takip1\kargo takip1\bin\kargo takip1.dll
+G:\kargo takip1\kargo takip1\bin\kargo takip1.pdb
+G:\kargo takip1\kargo takip1\bin\EntityFramework.dll
+G:\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.Agent.Intercept.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.PerfCounterCollector.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+G:\kargo takip1\kargo takip1\bin\Microsoft.Web.Infrastructure.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Helpers.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Mvc.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Razor.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.dll
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.dll
+G:\kargo takip1\kargo takip1\bin\EntityFramework.xml
+G:\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.xml
+G:\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Razor.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Helpers.xml
+G:\kargo takip1\kargo takip1\bin\System.Web.Mvc.xml
+G:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csprojResolveAssemblyReference.cache
+G:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.dll
+G:\kargo takip1\kargo takip1\obj\Debug\kargo takip1.pdb
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\ApplicationInsights.config
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\csc.exe
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CSharp.Core.targets
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\System.Collections.Immutable.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\System.Reflection.Metadata.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\vbc.exe
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe.config
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.dll.config
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\kargo takip1.pdb
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Agent.Intercept.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.PerfCounterCollector.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.Web.Infrastructure.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Helpers.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Mvc.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Razor.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Razor.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Helpers.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\bin\System.Web.Mvc.xml
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csprojResolveAssemblyReference.cache
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.dll
+C:\Users\fkucu\Desktop\kargo takip1\kargo takip1\obj\Debug\kargo takip1.pdb
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\ApplicationInsights.config
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\csc.exe
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.CSharp.Core.targets
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\Microsoft.VisualBasic.Core.targets
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\System.Collections.Immutable.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\System.Reflection.Metadata.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\vbc.exe
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\roslyn\VBCSCompiler.exe.config
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\kargo takip1.dll.config
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\kargo takip1.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\kargo takip1.pdb
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\EntityFramework.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.Agent.Intercept.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.PerfCounterCollector.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.Web.Infrastructure.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Helpers.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Mvc.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Razor.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\EntityFramework.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\EntityFramework.SqlServer.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.DependencyCollector.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.ServerTelemetryChannel.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.Web.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.AI.WindowsServer.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.ApplicationInsights.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Razor.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.Deployment.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Webpages.Razor.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Helpers.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\bin\System.Web.Mvc.xml
+D:\en son yedekleme\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csproj.AssemblyReference.cache
+D:\en son yedekleme\kargo takip1\kargo takip1\obj\Debug\kargo takip1.csproj.CoreCompileInputs.cache
+D:\en son yedekleme\kargo takip1\kargo takip1\obj\Debug\kargo ta.AA7D02C5.Up2Date
+D:\en son yedekleme\kargo takip1\kargo takip1\obj\Debug\kargo takip1.dll
+D:\en son yedekleme\kargo takip1\kargo takip1\obj\Debug\kargo takip1.pdb

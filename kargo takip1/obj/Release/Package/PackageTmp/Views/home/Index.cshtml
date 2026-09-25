@@ -1,0 +1,62 @@
+﻿@using kargo_takip1.Models
+@model kargo_takip1.Models.KargoViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 style="text-align:center; margin-bottom: 20px;">Gora Kargo Takip Anasayfası</h2>
+
+<div style="display: flex; justify-content: space-between; gap: 20px; padding: 0 20px;">
+    <!-- Sol Tabloda Gelen Kargolar -->
+    <div style="width: 50%; border: 2px solid #007bff; border-radius: 8px; padding: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+        <h3 style="text-align: center; color: #007bff;">Gelen Kargolar</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #007bff; color: white;">
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Ürün Adı</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Gönderen Şirket İsmi</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Geldiği Tarih</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Durumu</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.GelenKargoList)
+                {
+                    <tr style="background-color: #fff;">
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.Urunler.urunAdi</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.Sirketler.sirketAdi</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.gelenTarih</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.durum</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sağ Tabloda Giden Kargolar -->
+    <div style="width: 50%; border: 2px solid #28a745; border-radius: 8px; padding: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #f9f9f9;">
+        <h3 style="text-align: center; color: #28a745;">Giden Kargolar</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: #28a745; color: white;">
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Ürün Adı</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Giden Şirket İsmi</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Gönderilme Tarihi</strong></th>
+                    <th style="padding: 8px; border: 1px solid #ddd;"><strong>Açıklama</strong></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.GidenKargoList)
+                {
+                    <tr style="background-color: #fff;">
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.gidenUrunlerBilgi.GidenurunAdi</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.Sirketler.sirketAdi</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.gonderilenTarih</td>
+                        <td style="padding: 8px; border: 1px solid #ddd;">@item.acıklama</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

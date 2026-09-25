@@ -1,0 +1,73 @@
+﻿@model kargo_takip1.Models.Kullanıcılar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/adminlte.min.css" rel="stylesheet" />
+</head>
+<body class="hold-transition login-page">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header text-center">
+                <a href="~/Home/Index" class="h1"><b>Gora Yazılım</b> KargoTakip</a>
+            </div>
+            <div class="card-body">
+                <p class="login-box-msg">Uygulamaya Girmek İçin Giriş Yapın</p>
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="input-group mb-3">
+                        @Html.TextBoxFor(m => m.kullaniciMailAdresi, new { @class = "form-control", placeholder = "E-Mail" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-envelope"></span>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.kullaniciMailAdresi, "", new { @class = "text-danger" })
+
+                    <div class="input-group mb-3">
+                        @Html.PasswordFor(m => m.Sifre, new { @class = "form-control", placeholder = "Şifre" })
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-lock"></span>
+                            </div>
+                        </div>
+                    </div>
+                    @Html.ValidationMessageFor(m => m.Sifre, "", new { @class = "text-danger" })
+
+                    <div class="row">
+                        <div class="col-8">
+                            <div class="icheck-primary">
+                                <input type="checkbox" id="remember">
+                                <label for="remember">Beni Hatırla</label>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <button type="submit" class="btn btn-primary btn-block">Giriş Yap</button>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+    </div>
+
+    <script src="~/scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/scripts/bootstrap.bundle.min.js"></script>
+    <script src="~/scripts/adminlte.min.js"></script>
+</body>
+</html>
+

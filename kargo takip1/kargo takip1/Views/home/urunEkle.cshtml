@@ -1,0 +1,67 @@
+﻿@model kargo_takip1.Models.kargoHareket
+@{
+    ViewBag.Title = "urunEkle";
+}
+
+
+@using (Html.BeginForm("urunEkle","home",FormMethod.Post))
+{
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label>kargo seçiniz</label>
+                    @Html.DropDownListFor(a => a.kargoId, (List<SelectListItem>)ViewBag.kargolar, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Ürün seçiniz</label>
+                    @Html.DropDownListFor(a => a.urunId, (List<SelectListItem>) ViewBag.urunler, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Gönderen kullanıcıyı  seçiniz</label>
+                    @Html.DropDownListFor(a => a.alanKullanıcıId, (List<SelectListItem>)ViewBag.kullanıcılar, new { @class = "form-control" })
+                    
+                </div>
+                <div class="form-group">
+                    <label>Alan kullanıcıyı  seçiniz</label>
+                    @Html.DropDownListFor(a => a.gonderenKullancıId, (List<SelectListItem>)ViewBag.kullanıcılar1, new { @class = "form-control" })
+                   
+                </div>
+                <div class="form-group">
+                    <label>Gönderen Şirketi  seçiniz</label>
+                    @Html.DropDownListFor(a => a.alanId, (List<SelectListItem>)ViewBag.sirketler, new { @class = "form-control" })
+                    
+                </div>
+                <div class="form-group">
+                    <label>Alan Şirketi  seçiniz</label>
+                    @Html.DropDownListFor(a => a.gonderenId, (List<SelectListItem>)ViewBag.sirketler1, new { @class = "form-control" })
+                    
+                </div>
+                <div class="form-group">
+                    <label> İrsaliye Numarası Giriniz</label>
+                    <input type="text" name="irsaliyeNumarasi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label> Gönderilen Tarihi Giriniz</label>
+                    <input type="text" name="gonderilenTarih" class="form-control" />
+                </div>        
+                <div class="form-group">
+                    <label> Gelen Tarihi Giriniz</label>
+                    <input type="text" name="gelenTarih" class="form-control" />
+                </div> 
+                <div class="form-group">
+                    <label> Şuanki Durumunu Giriniz</label>
+                    <input type="text" name="Durum" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Açıklama Giriniz</label>
+                    <input type="text" name="aciklama" class="form-control" />
+                </div>
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+
+            </div>
+        </div>
+    </div>
+}
+
+

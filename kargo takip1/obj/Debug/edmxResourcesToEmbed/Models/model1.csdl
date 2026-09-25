@@ -1,0 +1,266 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="adminModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="GelenKargoTakip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kargoID" Type="Int32" />
+    <Property Name="teslimAlanID" Type="Int32" />
+    <Property Name="gelenTarih" Type="DateTime" Precision="0" />
+    <Property Name="irsaliyeNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="durum" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kontrolEdenID" Type="Int32" />
+    <Property Name="gonderenSirketID" Type="Int32" />
+    <Property Name="urunID" Type="Int32" />
+    <NavigationProperty Name="KargoFirmaları" Relationship="Self.FK_gelenKargo_kargolar" FromRole="GelenKargoTakip" ToRole="KargoFirmaları" />
+    <NavigationProperty Name="Kullanıcılar" Relationship="Self.FK_gelenKargo_kullanici" FromRole="GelenKargoTakip" ToRole="Kullanıcılar" />
+    <NavigationProperty Name="Kullanıcılar1" Relationship="Self.FK_gelenKargo_kullanici1" FromRole="GelenKargoTakip" ToRole="Kullanıcılar" />
+    <NavigationProperty Name="Sirketler" Relationship="Self.FK_gelenKargo_sirketler" FromRole="GelenKargoTakip" ToRole="Sirketler" />
+    <NavigationProperty Name="Urunler" Relationship="Self.FK_GelenKargoTakip_Urunler" FromRole="GelenKargoTakip" ToRole="Urunler" />
+  </EntityType>
+  <EntityType Name="GidenKargoTakip">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kargoID" Type="Int32" />
+    <Property Name="gidenFirmaID" Type="Int32" />
+    <Property Name="gonderilenTarih" Type="DateTime" Precision="0" />
+    <Property Name="gonderenKisi" Type="Int32" />
+    <Property Name="acıklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="irsaliyeNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="urunID" Type="Int32" />
+    <NavigationProperty Name="KargoFirmaları" Relationship="Self.FK_gidenKargo_kargolar" FromRole="GidenKargoTakip" ToRole="KargoFirmaları" />
+    <NavigationProperty Name="Kullanıcılar" Relationship="Self.FK_gidenKargo_kullanici" FromRole="GidenKargoTakip" ToRole="Kullanıcılar" />
+    <NavigationProperty Name="Sirketler" Relationship="Self.FK_gidenKargo_sirketler" FromRole="GidenKargoTakip" ToRole="Sirketler" />
+    <NavigationProperty Name="gidenUrunlerBilgi" Relationship="Self.FK_GidenKargoTakip_gidenUrunlerBilgi" FromRole="GidenKargoTakip" ToRole="gidenUrunlerBilgi" />
+  </EntityType>
+  <EntityType Name="gidenUrunlerBilgi">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GidenurunAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="GidenurunSeriNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="gidenFirma" Type="Int32" />
+    <NavigationProperty Name="GidenKargoTakip" Relationship="Self.FK_GidenKargoTakip_gidenUrunlerBilgi" FromRole="gidenUrunlerBilgi" ToRole="GidenKargoTakip" />
+    <NavigationProperty Name="Sirketler" Relationship="Self.FK_gidenUrunlerBilgi_Sirketler" FromRole="gidenUrunlerBilgi" ToRole="Sirketler" />
+  </EntityType>
+  <EntityType Name="KargoFirmaları">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="KargoAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="KargoilgiliKisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="KargoTelNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GelenKargoTakip" Relationship="Self.FK_gelenKargo_kargolar" FromRole="KargoFirmaları" ToRole="GelenKargoTakip" />
+    <NavigationProperty Name="GidenKargoTakip" Relationship="Self.FK_gidenKargo_kargolar" FromRole="KargoFirmaları" ToRole="GidenKargoTakip" />
+  </EntityType>
+  <EntityType Name="Kullanıcılar">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullaniciAdiSoyadi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="kullaniciMailAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Rol" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GelenKargoTakip" Relationship="Self.FK_gelenKargo_kullanici" FromRole="Kullanıcılar" ToRole="GelenKargoTakip" />
+    <NavigationProperty Name="GelenKargoTakip1" Relationship="Self.FK_gelenKargo_kullanici1" FromRole="Kullanıcılar" ToRole="GelenKargoTakip" />
+    <NavigationProperty Name="GidenKargoTakip" Relationship="Self.FK_gidenKargo_kullanici" FromRole="Kullanıcılar" ToRole="GidenKargoTakip" />
+  </EntityType>
+  <EntityType Name="Sirketler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sirketAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="sirketAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="vergiNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="vergiDairesi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="telefonNo" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ilgiliKisi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GelenKargoTakip" Relationship="Self.FK_gelenKargo_sirketler" FromRole="Sirketler" ToRole="GelenKargoTakip" />
+    <NavigationProperty Name="GidenKargoTakip" Relationship="Self.FK_gidenKargo_sirketler" FromRole="Sirketler" ToRole="GidenKargoTakip" />
+    <NavigationProperty Name="gidenUrunlerBilgi" Relationship="Self.FK_gidenUrunlerBilgi_Sirketler" FromRole="Sirketler" ToRole="gidenUrunlerBilgi" />
+  </EntityType>
+  <EntityType Name="Urunler">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urunAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="GelenKargoTakip" Relationship="Self.FK_GelenKargoTakip_Urunler" FromRole="Urunler" ToRole="GelenKargoTakip" />
+  </EntityType>
+  <Association Name="FK_gelenKargo_kargolar">
+    <End Role="KargoFirmaları" Type="Self.KargoFirmaları" Multiplicity="0..1" />
+    <End Role="GelenKargoTakip" Type="Self.GelenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KargoFirmaları">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GelenKargoTakip">
+        <PropertyRef Name="kargoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gelenKargo_kullanici">
+    <End Role="Kullanıcılar" Type="Self.Kullanıcılar" Multiplicity="0..1" />
+    <End Role="GelenKargoTakip" Type="Self.GelenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanıcılar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GelenKargoTakip">
+        <PropertyRef Name="teslimAlanID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gelenKargo_kullanici1">
+    <End Role="Kullanıcılar" Type="Self.Kullanıcılar" Multiplicity="0..1" />
+    <End Role="GelenKargoTakip" Type="Self.GelenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanıcılar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GelenKargoTakip">
+        <PropertyRef Name="kontrolEdenID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gelenKargo_sirketler">
+    <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="0..1" />
+    <End Role="GelenKargoTakip" Type="Self.GelenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sirketler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GelenKargoTakip">
+        <PropertyRef Name="gonderenSirketID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GelenKargoTakip_Urunler">
+    <End Role="Urunler" Type="Self.Urunler" Multiplicity="0..1" />
+    <End Role="GelenKargoTakip" Type="Self.GelenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Urunler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GelenKargoTakip">
+        <PropertyRef Name="urunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gidenKargo_kargolar">
+    <End Role="KargoFirmaları" Type="Self.KargoFirmaları" Multiplicity="0..1" />
+    <End Role="GidenKargoTakip" Type="Self.GidenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KargoFirmaları">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GidenKargoTakip">
+        <PropertyRef Name="kargoID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gidenKargo_kullanici">
+    <End Role="Kullanıcılar" Type="Self.Kullanıcılar" Multiplicity="0..1" />
+    <End Role="GidenKargoTakip" Type="Self.GidenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Kullanıcılar">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GidenKargoTakip">
+        <PropertyRef Name="gonderenKisi" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gidenKargo_sirketler">
+    <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="0..1" />
+    <End Role="GidenKargoTakip" Type="Self.GidenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sirketler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GidenKargoTakip">
+        <PropertyRef Name="gidenFirmaID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GidenKargoTakip_gidenUrunlerBilgi">
+    <End Role="gidenUrunlerBilgi" Type="Self.gidenUrunlerBilgi" Multiplicity="0..1" />
+    <End Role="GidenKargoTakip" Type="Self.GidenKargoTakip" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="gidenUrunlerBilgi">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GidenKargoTakip">
+        <PropertyRef Name="urunID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_gidenUrunlerBilgi_Sirketler">
+    <End Role="Sirketler" Type="Self.Sirketler" Multiplicity="0..1" />
+    <End Role="gidenUrunlerBilgi" Type="Self.gidenUrunlerBilgi" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sirketler">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="gidenUrunlerBilgi">
+        <PropertyRef Name="gidenFirma" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="adminEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="GelenKargoTakip" EntityType="Self.GelenKargoTakip" />
+    <EntitySet Name="GidenKargoTakip" EntityType="Self.GidenKargoTakip" />
+    <EntitySet Name="gidenUrunlerBilgi" EntityType="Self.gidenUrunlerBilgi" />
+    <EntitySet Name="KargoFirmaları" EntityType="Self.KargoFirmaları" />
+    <EntitySet Name="Kullanıcılar" EntityType="Self.Kullanıcılar" />
+    <EntitySet Name="Sirketler" EntityType="Self.Sirketler" />
+    <EntitySet Name="Urunler" EntityType="Self.Urunler" />
+    <AssociationSet Name="FK_gelenKargo_kargolar" Association="Self.FK_gelenKargo_kargolar">
+      <End Role="KargoFirmaları" EntitySet="KargoFirmaları" />
+      <End Role="GelenKargoTakip" EntitySet="GelenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gelenKargo_kullanici" Association="Self.FK_gelenKargo_kullanici">
+      <End Role="Kullanıcılar" EntitySet="Kullanıcılar" />
+      <End Role="GelenKargoTakip" EntitySet="GelenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gelenKargo_kullanici1" Association="Self.FK_gelenKargo_kullanici1">
+      <End Role="Kullanıcılar" EntitySet="Kullanıcılar" />
+      <End Role="GelenKargoTakip" EntitySet="GelenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gelenKargo_sirketler" Association="Self.FK_gelenKargo_sirketler">
+      <End Role="Sirketler" EntitySet="Sirketler" />
+      <End Role="GelenKargoTakip" EntitySet="GelenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GelenKargoTakip_Urunler" Association="Self.FK_GelenKargoTakip_Urunler">
+      <End Role="Urunler" EntitySet="Urunler" />
+      <End Role="GelenKargoTakip" EntitySet="GelenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gidenKargo_kargolar" Association="Self.FK_gidenKargo_kargolar">
+      <End Role="KargoFirmaları" EntitySet="KargoFirmaları" />
+      <End Role="GidenKargoTakip" EntitySet="GidenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gidenKargo_kullanici" Association="Self.FK_gidenKargo_kullanici">
+      <End Role="Kullanıcılar" EntitySet="Kullanıcılar" />
+      <End Role="GidenKargoTakip" EntitySet="GidenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gidenKargo_sirketler" Association="Self.FK_gidenKargo_sirketler">
+      <End Role="Sirketler" EntitySet="Sirketler" />
+      <End Role="GidenKargoTakip" EntitySet="GidenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GidenKargoTakip_gidenUrunlerBilgi" Association="Self.FK_GidenKargoTakip_gidenUrunlerBilgi">
+      <End Role="gidenUrunlerBilgi" EntitySet="gidenUrunlerBilgi" />
+      <End Role="GidenKargoTakip" EntitySet="GidenKargoTakip" />
+    </AssociationSet>
+    <AssociationSet Name="FK_gidenUrunlerBilgi_Sirketler" Association="Self.FK_gidenUrunlerBilgi_Sirketler">
+      <End Role="Sirketler" EntitySet="Sirketler" />
+      <End Role="gidenUrunlerBilgi" EntitySet="gidenUrunlerBilgi" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

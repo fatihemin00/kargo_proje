@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="goratakipModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="kargoHareket">
+    <Key>
+      <PropertyRef Name="ıd" />
+    </Key>
+    <Property Name="ıd" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kargoId" Type="Int32" />
+    <Property Name="urunId" Type="Int32" />
+    <Property Name="gonderenId" Type="Int32" />
+    <Property Name="alanId" Type="Int32" />
+    <Property Name="irsaliyeNumarasi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="gonderilenTarih" Type="DateTime" Precision="3" />
+    <Property Name="gelenTarih" Type="DateTime" Precision="3" />
+    <Property Name="Durum" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="aciklama" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="alanKullanıcıId" Type="Int32" />
+    <Property Name="gonderenKullancıId" Type="Int32" />
+    <NavigationProperty Name="kargolar" Relationship="Self.FK_kargoHareket_kargolar" FromRole="kargoHareket" ToRole="kargolar" />
+    <NavigationProperty Name="kullanıcılar" Relationship="Self.FK_kargoHareket_kullanıcılar" FromRole="kargoHareket" ToRole="kullanıcılar" />
+    <NavigationProperty Name="kullanıcılar1" Relationship="Self.FK_kargoHareket_kullanıcılar1" FromRole="kargoHareket" ToRole="kullanıcılar" />
+    <NavigationProperty Name="sirketler" Relationship="Self.FK_kargoHareket_sirketler" FromRole="kargoHareket" ToRole="sirketler" />
+    <NavigationProperty Name="sirketler1" Relationship="Self.FK_kargoHareket_sirketler1" FromRole="kargoHareket" ToRole="sirketler" />
+    <NavigationProperty Name="urunler" Relationship="Self.FK_kargoHareket_urunler" FromRole="kargoHareket" ToRole="urunler" />
+  </EntityType>
+  <EntityType Name="kargolar">
+    <Key>
+      <PropertyRef Name="kargoId" />
+    </Key>
+    <Property Name="kargoId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kargoAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="kargoHareket" Relationship="Self.FK_kargoHareket_kargolar" FromRole="kargolar" ToRole="kargoHareket" />
+  </EntityType>
+  <EntityType Name="kullanıcılar">
+    <Key>
+      <PropertyRef Name="kullanıcıId" />
+    </Key>
+    <Property Name="kullanıcıId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="kullaniciAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="kargoHareket" Relationship="Self.FK_kargoHareket_kullanıcılar" FromRole="kullanıcılar" ToRole="kargoHareket" />
+    <NavigationProperty Name="kargoHareket1" Relationship="Self.FK_kargoHareket_kullanıcılar1" FromRole="kullanıcılar" ToRole="kargoHareket" />
+  </EntityType>
+  <EntityType Name="sirketler">
+    <Key>
+      <PropertyRef Name="sirketId" />
+    </Key>
+    <Property Name="sirketId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="sirketadi" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="kargoHareket" Relationship="Self.FK_kargoHareket_sirketler" FromRole="sirketler" ToRole="kargoHareket" />
+    <NavigationProperty Name="kargoHareket1" Relationship="Self.FK_kargoHareket_sirketler1" FromRole="sirketler" ToRole="kargoHareket" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="urunler">
+    <Key>
+      <PropertyRef Name="urunId" />
+    </Key>
+    <Property Name="urunId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="urunAdi" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="kargoHareket" Relationship="Self.FK_kargoHareket_urunler" FromRole="urunler" ToRole="kargoHareket" />
+  </EntityType>
+  <Association Name="FK_kargoHareket_kargolar">
+    <End Role="kargolar" Type="Self.kargolar" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kargolar">
+        <PropertyRef Name="kargoId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="kargoId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kargoHareket_kullanıcılar">
+    <End Role="kullanıcılar" Type="Self.kullanıcılar" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanıcılar">
+        <PropertyRef Name="kullanıcıId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="gonderenKullancıId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kargoHareket_kullanıcılar1">
+    <End Role="kullanıcılar" Type="Self.kullanıcılar" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="kullanıcılar">
+        <PropertyRef Name="kullanıcıId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="gonderenKullancıId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kargoHareket_sirketler">
+    <End Role="sirketler" Type="Self.sirketler" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sirketler">
+        <PropertyRef Name="sirketId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="gonderenId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kargoHareket_sirketler1">
+    <End Role="sirketler" Type="Self.sirketler" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="sirketler">
+        <PropertyRef Name="sirketId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="alanId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_kargoHareket_urunler">
+    <End Role="urunler" Type="Self.urunler" Multiplicity="0..1" />
+    <End Role="kargoHareket" Type="Self.kargoHareket" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="urunler">
+        <PropertyRef Name="urunId" />
+      </Principal>
+      <Dependent Role="kargoHareket">
+        <PropertyRef Name="urunId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="goratakipEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="kargoHareket" EntityType="Self.kargoHareket" />
+    <EntitySet Name="kargolar" EntityType="Self.kargolar" />
+    <EntitySet Name="kullanıcılar" EntityType="Self.kullanıcılar" />
+    <EntitySet Name="sirketler" EntityType="Self.sirketler" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="urunler" EntityType="Self.urunler" />
+    <AssociationSet Name="FK_kargoHareket_kargolar" Association="Self.FK_kargoHareket_kargolar">
+      <End Role="kargolar" EntitySet="kargolar" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kargoHareket_kullanıcılar" Association="Self.FK_kargoHareket_kullanıcılar">
+      <End Role="kullanıcılar" EntitySet="kullanıcılar" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kargoHareket_kullanıcılar1" Association="Self.FK_kargoHareket_kullanıcılar1">
+      <End Role="kullanıcılar" EntitySet="kullanıcılar" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kargoHareket_sirketler" Association="Self.FK_kargoHareket_sirketler">
+      <End Role="sirketler" EntitySet="sirketler" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kargoHareket_sirketler1" Association="Self.FK_kargoHareket_sirketler1">
+      <End Role="sirketler" EntitySet="sirketler" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+    <AssociationSet Name="FK_kargoHareket_urunler" Association="Self.FK_kargoHareket_urunler">
+      <End Role="urunler" EntitySet="urunler" />
+      <End Role="kargoHareket" EntitySet="kargoHareket" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

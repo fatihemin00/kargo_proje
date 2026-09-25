@@ -1,0 +1,83 @@
+﻿@model kargo_takip1.Models.Sirketler
+@{
+    ViewBag.Title = "sirketler";
+}
+
+<h2 style="text-align:center">Şirket Ekleme Sayfası</h2>
+<br />
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <form id="sirketekleform">
+                    <div class="form-group">
+                        <label>Şirket İsmi Giriniz</label>
+                        <input type="text" name="sirketadi" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Adresini Giriniz</label>
+                        <input type="text" name="sirketAdresi" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Vergi Numarasını Giriniz</label>
+                        <input type="text" name="vergiNo" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Vergi Dairesini Giriniz</label>
+                        <input type="text" name="vergiDairesi" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirket Telefon Numarasını Giriniz</label>
+                        <input type="text" name="telefonNo" class="form-control" />
+                    </div>
+                    <div class="form-group">
+                        <label>Şirketeki İlgili Kişiyi Giriniz Giriniz</label>
+                        <input type="text" name="ilgiliKisi" class="form-control" />
+                    </div>
+                    <button class="btn btn-primary" type="submit"> kaydet</button>
+                    </form>
+</div>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('sirketekleform');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        // AJAX ile form verilerini gönderme
+        $("#sirketekleform").submit(function (e) {
+            e.preventDefault(); // Formun varsayılan submit işlemini engelle
+
+            var form = $(this);
+            var actionUrl = '/home/sirketler'; // Formun gönderileceği URL
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(), // Form verilerini serileştir
+                success: function (data) {
+                    window.location.href = '/home/sirketlerlistele'; // Kayıttan sonra yönlendirme
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>
+
+

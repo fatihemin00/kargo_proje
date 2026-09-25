@@ -1,0 +1,191 @@
+﻿@using kargo_takip1.Models
+@model List<GidenKargoTakip>
+@{
+    ViewBag.Title = "Kargo Kapak Listeleme";
+}
+<style>
+    /* Genel stil */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+
+    .page {
+        width: 210mm; /* A4 genişliği */
+        height: 297mm; /* A4 yüksekliği */
+        padding: 10mm;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Tabloları sayfa üzerinde dikey olarak yaymak için */
+        align-items: center;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+        border: 4px solid black;
+        margin: 0;
+    }
+
+    td, th {
+        padding: 20px; /* Hücre içi boşluğu artır */
+        border: 4px solid black;
+        text-align: left;
+        font-size: 18px; /* Yazı boyutunu büyüt */
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .large-textarea {
+        width: 100%;
+        height: 150px; /* Textarea yüksekliğini artır */
+        box-sizing: border-box;
+        resize: vertical;
+        font-size: 16px;
+    }
+
+    .print-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 18px;
+    }
+
+        .print-button:hover {
+            background-color: #45a049;
+        }
+
+    .açıklama-alanı {
+        width: 100%;
+        height: 150px; /* Yüksekliği artır */
+        box-sizing: border-box;
+        border: 4px solid black;
+        padding: 20px;
+        font-size: 18px; /* Yazı boyutunu büyüt */
+        overflow: hidden; /* Taşmayı önlemek için */
+    }
+</style>
+
+<!-- Yazdır Butonu -->
+<button class="print-button" onclick="window.print()">Yazdır</button>
+
+<div class="page">
+    @foreach (var item in Model)  // İki tabloyu göstermek için Take(2) kullanıyoruz
+    {
+        <table>
+            <tr>
+                <td rowspan="4" style="width: 40%;">
+                    <strong>GÖNDEREN:</strong><br />
+                    EKSPRES ELEKTRONİK EĞİTİM ÖĞR.<br />
+                    GIDA SAN. TİC. LTD. ŞTİ<br />
+                    <br />
+                    Nişantaşı mah. Keyhüsrev sok no:13/B<br />
+                    <br />
+                    <strong>Tel:</strong> 0332 320 20 78<br />
+                    <br />
+                    www.expresbilgisayar.com<br />
+                    <br />
+                    bilgi@expresbilgisayar.com
+                </td>
+                <td>
+                    <strong>ALICI:</strong><br />
+                    @item.Sirketler.sirketAdi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>ADRES:</strong><br />
+                    @item.Sirketler.sirketAdresi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>YETKİLİ KİŞİ:</strong><br />
+                    @item.Sirketler.ilgiliKisi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>TELEFON:</strong><br />
+                    @item.Sirketler.telefonNo
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="açıklama-alanı">
+                        @item.acıklama
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <br />
+        <br />
+        <table>
+            <tr>
+                <td rowspan="4" style="width: 40%;">
+                    <strong>GÖNDEREN:</strong><br />
+                    EKSPRES ELEKTRONİK EĞİTİM ÖĞR.<br />
+                    GIDA SAN. TİC. LTD. ŞTİ<br />
+                    <br />
+                    Nişantaşı mah. Keyhüsrev sok no:13/B<br />
+                    <br />
+                    <strong>Tel:</strong> 0332 320 20 78<br />
+                    <br />
+                    www.expresbilgisayar.com<br />
+                    <br />
+                    bilgi@expresbilgisayar.com
+                </td>
+                <td>
+                    <strong>ALICI:</strong><br />
+                    @item.Sirketler.sirketAdi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>ADRES:</strong><br />
+                    @item.Sirketler.sirketAdresi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>YETKİLİ KİŞİ:</strong><br />
+                    @item.Sirketler.ilgiliKisi
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <strong>TELEFON:</strong><br />
+                    @item.Sirketler.telefonNo
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div class="açıklama-alanı">
+                        @item.acıklama
+                    </div>
+                </td>
+            </tr>
+        </table>
+    }
+</div>
+
+
+
+
+
+
+
+
+
+
+

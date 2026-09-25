@@ -1,0 +1,80 @@
+﻿@model kargo_takip1.Models.KargoFirmaları
+@{
+    ViewBag.Title = "güncelle";
+}
+<h2 style="text-align:center">KargoFirması  Düzenleme Sayfası</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="kargolar">
+                <div class="form-group">
+                    @*<label> ıd Giriniz</label>*@
+                    <input hidden type="text" name="Id" class="form-control" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <label> kargo  Adı   Giriniz</label>
+                    <input type="text" name="KargoAdi" class="form-control" value="@Model.KargoAdi" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Kargo Telefon Numarası  Giriniz</label>
+                    <input type="text" name="KargoTelNo" class="form-control" value="@Model.KargoTelNo" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Kargo İlgili Kişi  Giriniz</label>
+                    <input type="text" name="KargoilgiliKisi" class="form-control" value="@Model.KargoilgiliKisi" />
+                </div>
+                <br />
+                <button class="btn btn-primary" type="submit"> kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('kargolar');
+
+        // Formun `Enter` tuşu ile gönderilmesini engelle
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Formun gönderilmesini engeller
+                var focusableElements = form.querySelectorAll('input, select, textarea'); // Form içindeki tüm giriş elemanlarını al
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement); // Mevcut odaklı elemanın indeksini al
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus(); // Bir sonraki elemanı odakla
+                } else {
+                    focusableElements[0].focus(); // Son elemandaysanız, ilk elemana geri dön
+                }
+            }
+        });
+
+        // Formu AJAX ile gönder
+        $('#kargolar').on('submit', function (e) {
+            e.preventDefault(); // Formun normal şekilde gönderilmesini engelle
+
+            var form = $(this);
+            var actionUrl = form.attr('action') || '/home/guncelle6'; // Eğer formun `action` özelliği varsa kullan, yoksa varsayılan URL'yi kullan
+
+            $.ajax({
+                type: 'POST',
+                url: actionUrl,
+                data: form.serialize(), // Formun tüm verilerini seri hale getir
+                success: function (response) {
+                    // Başarılı yanıt durumunda yapılacak işlemler
+                    alert('Veri başarıyla kaydedildi!');
+                    // İsterseniz burada sayfayı yenileyebilir veya başka bir işlem yapabilirsiniz
+                    window.location.href = '/home/kargolistele'; // Formu sıfırla (isteğe bağlı)
+                },
+                error: function (xhr, status, error) {
+                    // Hata durumunda yapılacak işlemler
+                    window.location.href = '/home/kargolistele';
+                }
+            });
+        });
+    });
+</script>
+</script>
+
