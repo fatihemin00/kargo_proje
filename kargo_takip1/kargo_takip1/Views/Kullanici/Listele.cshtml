@@ -1,0 +1,119 @@
+﻿@using kargo_takip1.Models
+@model List<kargo_takip1.Models.Kullanıcılar>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Kullanıcılar Sayfası</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        th, td {
+            padding: 8px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        .search-box {
+            margin-bottom: 10px;
+            width: 200px;
+            padding: 5px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .table-container {
+            max-width: 80%;
+            margin: 0 auto;
+            overflow-x: auto;
+        }
+
+        .btn {
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    @{
+        ViewBag.Title = "Kullanıcı Listesi";
+    }
+    <h2 style="text-align:center">Kullanıcılar Sayfası</h2>
+
+    <div class="button-container">
+        <input type="text" id="searchInput" class="search-box" placeholder="Ara...">
+
+        <!-- YENİ ROL KONTROLÜ VE YENİ EKLE LİNKİ -->
+        @if (ViewBag.Rol == "A")
+        {
+            <a href="/Kullanici/Ekle" class="btn btn-primary">Kullanıcı Ekle</a>
+        }
+    </div>
+
+    <div class="table-container">
+        <table class="table table-bordered" id="myTable">
+            <thead>
+                <tr>
+                    <th><strong>Kullanıcı Adı Soyadı</strong></th>
+                    <th><strong>Kullanıcı Mail Adresi</strong></th>
+                    @if (ViewBag.Rol == "A")
+                    {
+                        <th><strong>DÜZENLE</strong></th>
+                        <th><strong>SİL</strong></th>
+                    }
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.kullaniciAdiSoyadi</td>
+                        <td>@item.kullaniciMailAdresi</td>
+                        @if (ViewBag.Rol == "A")
+                        {
+                            <!-- YENİ GÜNCELLE VE SİL LİNKLERİ -->
+                            <td><a href="/Kullanici/Guncelle/@item.Id" class="btn btn-warning">Düzenle</a></td>
+                            <td>
+                                <a href="/Kullanici/Sil/@item.Id" class="btn btn-danger" onclick="return confirm('Bu kullanıcıyı silmek istediğinize emin misiniz?');">Sil</a>
+                            </td>
+                        }
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        // Arama işlevselliği
+        document.getElementById('searchInput').addEventListener('keyup', function () {
+            var input = this.value.toLowerCase();
+            var rows = document.querySelectorAll('#myTable tbody tr');
+
+            rows.forEach(function (row) {
+                var cells = row.querySelectorAll('td');
+                var match = false;
+                cells.forEach(function (cell) {
+                    if (cell.textContent.toLowerCase().includes(input)) {
+                        match = true;
+                    }
+                });
+                row.style.display = match ? '' : 'none';
+            });
+        });
+    </script>
+</body>
+</html>

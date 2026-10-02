@@ -1,0 +1,77 @@
+﻿@model kargo_takip1.Models.Sirketler
+@{
+    ViewBag.Title = "Şirket Ekle";
+}
+<h2 style="text-align:center">Şirket Ekleme Sayfası</h2>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="sirketekleform">
+                <div class="form-group">
+                    <label>Şirket İsmi Giriniz</label>
+                    <input type="text" name="sirketadi" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label>Şirket Adresini Giriniz</label>
+                    <input type="text" name="sirketAdresi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Şirket Vergi Numarasını Giriniz</label>
+                    <input type="text" name="vergiNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Şirket Vergi Dairesini Giriniz</label>
+                    <input type="text" name="vergiDairesi" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Şirket Telefon Numarasını Giriniz</label>
+                    <input type="text" name="telefonNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Şirketeki İlgili Kişiyi Giriniz</label>
+                    <input type="text" name="ilgiliKisi" class="form-control" />
+                </div>
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('sirketekleform');
+
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        $("#sirketekleform").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var actionUrl = '/Sirket/Ekle';
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(),
+                success: function (data) {
+                    window.location.href = '/Sirket/Listele';
+                },
+                error: function () {
+                    alert("Bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>

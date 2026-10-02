@@ -1,0 +1,55 @@
+﻿@model kargo_takip1.Models.gidenUrunlerBilgi
+@{
+    ViewBag.Title = "Giden Ürün Güncelle";
+    List<SelectListItem> sirketList = ViewBag.sirketler ?? new List<SelectListItem>();
+}
+<h2 style="text-align:center">Giden Ürün Düzenleme Sayfası</h2>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="gidenguncelleform">
+                <input hidden type="text" name="Id" value="@Model.Id" />
+                <div class="form-group">
+                    <label>Ürün Adı</label>
+                    <input type="text" name="GidenurunAdi" class="form-control" value="@Model.GidenurunAdi" required />
+                </div>
+                <div class="form-group">
+                    <label>Seri No</label>
+                    <input type="text" name="GidenurunSeriNo" class="form-control" value="@Model.GidenurunSeriNo" />
+                </div>
+                <div class="form-group">
+                    <label>Şirket</label>
+                    <select class="form-control" name="gidenFirma">
+                        @foreach (var item in sirketList)
+                        {
+                            bool isSelected = item.Value == Model.gidenFirma.ToString();
+                            <option value="@item.Value" selected="@isSelected">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <button class="btn btn-success" type="submit">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#gidenguncelleform").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: "POST",
+                url: '/Urun/GidenGuncelle',
+                data: form.serialize(),
+                success: function () {
+                    window.location.href = '/Urun/GidenListele';
+                },
+                error: function () {
+                    alert("Güncelleme sırasında hata oluştu.");
+                }
+            });
+        });
+    });
+</script>

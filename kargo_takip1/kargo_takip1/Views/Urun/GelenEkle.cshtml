@@ -1,0 +1,39 @@
+﻿@model kargo_takip1.Models.Urunler
+@{
+    ViewBag.Title = "Gelen Ürün Ekle";
+}
+<h2 style="text-align:center">Ürün Kategori Ekleme Sayfası</h2>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="urun1ekleform">
+                <div class="form-group">
+                    <label>Ürün Adı Giriniz</label>
+                    <input type="text" name="urunAdi" class="form-control" required />
+                </div>
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#urun1ekleform").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: "POST",
+                url: '/Urun/GelenEkle',
+                data: form.serialize(),
+                success: function () {
+                    window.location.href = '/Urun/GelenListele';
+                },
+                error: function () {
+                    alert("Bir hata oluştu.");
+                }
+            });
+        });
+    });
+</script>

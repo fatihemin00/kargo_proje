@@ -1,0 +1,54 @@
+﻿@model kargo_takip1.Models.gidenUrunlerBilgi
+@{
+    ViewBag.Title = "Giden Ürün Ekle";
+    List<SelectListItem> sirketList = ViewBag.sirketler ?? new List<SelectListItem>();
+}
+<h2 style="text-align:center">Giden Ürün Ekleme Sayfası</h2>
+<br />
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="gidenurun">
+                <div class="form-group">
+                    <label>Ürün Adı Giriniz</label>
+                    <input type="text" name="GidenurunAdi" class="form-control" required />
+                </div>
+                <div class="form-group">
+                    <label>Giden Ürünün Seri No Giriniz</label>
+                    <input type="text" name="GidenurunSeriNo" class="form-control" />
+                </div>
+                <div class="form-group">
+                    <label>Gönderilen Şirketi Seçiniz</label>
+                    <select class="form-control" name="gidenFirma">
+                        <option selected value="0" disabled>Şirket seçiniz</option>
+                        @foreach (var item in sirketList)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#gidenurun").submit(function (e) {
+            e.preventDefault();
+            var form = $(this);
+            $.ajax({
+                type: "POST",
+                url: '/Urun/GidenEkle',
+                data: form.serialize(),
+                success: function () {
+                    window.location.href = '/Urun/GidenListele';
+                },
+                error: function () {
+                    alert("Bir hata oluştu.");
+                }
+            });
+        });
+    });
+</script>

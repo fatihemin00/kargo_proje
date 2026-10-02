@@ -1,0 +1,201 @@
+﻿@model kargo_takip1.Models.Kullanıcılar
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>GORA Kargo - Oturum Aç</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- FontAwesome ve Bootstrap (Projende olan yollar) -->
+    <link href="~/Content/all.min.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            font-family: 'Source Sans Pro', sans-serif;
+        }
+
+        /* Arka Plan Ayarı */
+        .bg-image {
+            background: url('/res/Background_Server.jpg') no-repeat center center fixed;
+            background-size: cover;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Modern Buzlu Cam (Glassmorphism) Tasarımı */
+        .login-box {
+            width: 100%;
+            max-width: 420px;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(10px);
+            text-align: center;
+        }
+
+        /* Logo Ayarı */
+        .login-logo img {
+            width: 70%;
+            margin-bottom: 25px;
+            filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.1));
+        }
+
+        /* Başlık */
+        .login-title {
+            color: #37b349;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            border-bottom: 2px solid #37b349;
+            display: inline-block;
+            padding-bottom: 5px;
+        }
+
+        /* Input Alanları */
+        .form-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .form-control {
+            height: 50px;
+            border-radius: 30px;
+            padding-left: 20px;
+            border: 1px solid #ced4da;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+            .form-control:focus {
+                border-color: #37b349;
+                box-shadow: 0 0 8px rgba(55, 179, 73, 0.3);
+                outline: none;
+            }
+
+        /* Checkbox */
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            margin-bottom: 25px;
+            padding-left: 5px;
+            color: #555;
+            font-weight: 600;
+        }
+
+            .checkbox-container input {
+                margin-right: 10px;
+                transform: scale(1.2);
+                accent-color: #37b349;
+            }
+
+        /* Buton */
+        .btn-login {
+            background-color: #37b349;
+            color: white;
+            border: none;
+            width: 100%;
+            height: 50px;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s;
+            box-shadow: 0 4px 15px rgba(55, 179, 73, 0.4);
+        }
+
+            .btn-login:hover {
+                background-color: #2a8a38;
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(55, 179, 73, 0.6);
+            }
+
+        /* Hata Mesajı */
+        #error-message {
+            margin-top: 15px;
+            font-weight: 600;
+            color: #dc3545;
+            min-height: 24px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-image">
+        <div class="login-box">
+
+            <div class="login-logo">
+                <a href="/">
+                    <img src="~/res/goraLogo.png" alt="GORA Yazılım">
+                </a>
+            </div>
+
+            <div class="login-title">SİSTEME GİRİŞ</div>
+
+            <form id="loginForm" method="post">
+                <div class="form-group">
+                    <input type="text" class="form-control" name="kullaniciMailAdresi" id="inputEmail" placeholder="Kullanıcı Adı veya E-Posta" required autofocus>
+                </div>
+
+                <div class="form-group">
+                    <input type="password" class="form-control" name="Sifre" id="inputPassword" placeholder="Şifreniz" required autocomplete="off">
+                </div>
+
+                <div class="checkbox-container">
+                    <input type="checkbox" name="RememberMe" value="true" id="rememberMe">
+                    <label for="rememberMe" style="margin: 0; cursor: pointer;">Oturumumu açık bırak</label>
+                </div>
+
+                <button type="submit" class="btn-login">Oturum Aç</button>
+
+                <div id="error-message"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- jQuery ve Ajax İşlemi -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#loginForm').submit(function (event) {
+                event.preventDefault();
+
+                var $btn = $('.btn-login');
+                var originalText = $btn.text();
+                $btn.text('Giriş Yapılıyor...').prop('disabled', true);
+                $('#error-message').text('');
+
+                $.ajax({
+                    type: "POST",
+                    url: '@Url.Action("Login", "Account")',
+                    data: $(this).serialize(),
+                    success: function (response) {
+                        if (response.success) {
+                            window.location.href = '@Url.Action("Index", "Home")';
+                        } else {
+                            $('#error-message').text(response.message);
+                            $btn.text(originalText).prop('disabled', false);
+                        }
+                    },
+                    error: function () {
+                        $('#error-message').text("Sunucuyla bağlantı kurulamadı. Lütfen tekrar deneyin.");
+                        $btn.text(originalText).prop('disabled', false);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

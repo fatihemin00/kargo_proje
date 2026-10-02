@@ -1,0 +1,73 @@
+﻿@model kargo_takip1.Models.Kullanıcılar
+@{
+    ViewBag.Title = "Kullanıcı Güncelle";
+}
+<h2 style="text-align:center">Kullanıcı Güncelleme Sayfası</h2>
+<br />
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="kullaniciguncelleform">
+                <!-- Güncellenecek kaydın ID'sini gizli olarak tutuyoruz -->
+                <input type="hidden" name="Id" value="@Model.Id" />
+                <input type="hidden" name="Rol" value="@Model.Rol" />
+
+                <div class="form-group">
+                    <label>Kullanıcı Adı Soyad</label>
+                    <input type="text" name="kullaniciAdiSoyadi" class="form-control" value="@Model.kullaniciAdiSoyadi" />
+                </div>
+                <div class="form-group">
+                    <label>Kullanıcı Mail Adresi</label>
+                    <input type="text" name="kullaniciMailAdresi" class="form-control" value="@Model.kullaniciMailAdresi" />
+                </div>
+                <div class="form-group">
+                    <label>Kullanıcı Şifresi</label>
+                    <input type="text" name="Sifre" class="form-control" value="@Model.Sifre" />
+                </div>
+
+                <button class="btn btn-success" type="submit">Güncelle</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('kullaniciguncelleform');
+
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        $("#kullaniciguncelleform").submit(function (e) {
+            e.preventDefault();
+
+            var form = $(this);
+            // GÜNCELLEME İÇİN YENİ URL
+            var actionUrl = '/Kullanici/Guncelle';
+
+            $.ajax({
+                type: "POST",
+                url: actionUrl,
+                data: form.serialize(),
+                success: function (data) {
+                    window.location.href = '/Kullanici/Listele';
+                },
+                error: function () {
+                    alert("Güncelleme sırasında bir hata oluştu. Lütfen tekrar deneyin.");
+                }
+            });
+        });
+    });
+</script>

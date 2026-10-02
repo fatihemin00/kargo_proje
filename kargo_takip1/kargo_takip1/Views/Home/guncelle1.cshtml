@@ -1,0 +1,116 @@
+﻿@model kargo_takip1.Models.GidenKargoTakip
+@{
+    ViewBag.Title = "urunEkle";
+    List<SelectListItem> sirketList = ViewBag.sirketler ?? new List<SelectListItem>();
+    List<SelectListItem> urunList = ViewBag.urunler ?? new List<SelectListItem>();
+    List<SelectListItem> kargolist = ViewBag.kargolar ?? new List<SelectListItem>();
+    List<SelectListItem> kullanıcılist = ViewBag.kullanıcılar ?? new List<SelectListItem>();
+}
+
+<h2 style="text-align:center">Giden Ürün Düzenleme Sayfası</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="gidenkargoFormguncel">
+                <div class="form-group">
+                    <input hidden type="text" name="Id" class="form-control" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> Gönderilen Kargoyu Seçiniz</label>
+                    <select class="form-control" name="kargoID">
+                        <option selected value="@Model.kargoID">@(Model.KargoFirmaları != null ? Model.KargoFirmaları.KargoAdi : "Seçiniz")</option>
+                        @foreach (var item in kargolist)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> Gönderilen Şirketi Seçiniz</label>
+                    <select class="form-control" name="gidenFirmaID">
+                        <option selected value="@Model.gidenFirmaID">@(Model.Sirketler != null ? Model.Sirketler.sirketAdi : "Seçiniz")</option>
+                        @foreach (var item in sirketList)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Gönderilen Ürünü Seçiniz</label>
+                    <select class="form-control" name="urunID">
+                        <option selected value="@Model.urunID">@(Model.gidenUrunlerBilgi != null ? Model.gidenUrunlerBilgi.GidenurunAdi : "Seçiniz")</option>
+                        @foreach (var item in urunList)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label> Gönderilen Tarihi Giriniz</label>
+                    <input type="date" name="gonderilenTarih" class="form-control" value="@(Model.gonderilenTarih.HasValue ? Model.gonderilenTarih.Value.ToString("yyyy-MM-dd") : "")" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> İrsaliye Numarası Giriniz</label>
+                    <input type="text" name="irsaliyeNo" class="form-control" value="@Model.irsaliyeNo" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label> Gönderilen Kullanıcıyı Seçiniz</label>
+                    <select class="form-control" name="gonderenKisi">
+                        <option selected value="@Model.gonderenKisi">@(Model.Kullanıcılar != null ? Model.Kullanıcılar.kullaniciAdiSoyadi : "Seçiniz")</option>
+                        @foreach (var item in kullanıcılist)
+                        {
+                            <option value="@item.Value"> @item.Text </option>
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Açıklamayı Giriniz</label>
+                    <input type="text" name="acıklama" class="form-control" value="@Model.acıklama" />
+                </div>
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('gidenkargoFormguncel');
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+        $('#gidenkargoFormguncel').on('submit', function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var actionUrl = form.attr('action') || '/home/guncelle1';
+            $.ajax({
+                type: 'POST',
+                url: actionUrl,
+                data: form.serialize(),
+                success: function (response) {
+                    alert('Veri başarıyla güncellendi!');
+                    window.location.href = '/home/gidenkargolarılistele';
+                },
+                error: function (xhr, status, error) {
+                    alert('Bir hata oluştu: ' + error);
+                }
+            });
+        });
+    });
+</script>

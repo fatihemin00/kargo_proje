@@ -1,0 +1,71 @@
+﻿@model kargo_takip1.Models.KargoFirmaları
+@{
+    ViewBag.Title = "Kargo Firması Güncelle";
+}
+
+<h2 style="text-align:center">Kargo Firması Düzenleme Sayfası</h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <form id="kargoguncelleform">
+                <div class="form-group">
+                    <input hidden type="text" name="Id" class="form-control" value="@Model.Id" />
+                </div>
+                <div class="form-group">
+                    <label>Kargo Adı Giriniz</label>
+                    <input type="text" name="KargoAdi" class="form-control" value="@Model.KargoAdi" required />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Kargo Telefon Numarası Giriniz</label>
+                    <input type="text" name="KargoTelNo" class="form-control" value="@Model.KargoTelNo" />
+                </div>
+                <div class="form-group">
+                    <br />
+                    <label>Kargo İlgili Kişi Giriniz</label>
+                    <input type="text" name="KargoilgiliKisi" class="form-control" value="@Model.KargoilgiliKisi" />
+                </div>
+                <br />
+                <button class="btn btn-primary" type="submit">Kaydet</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        var form = document.getElementById('kargoguncelleform');
+
+        form.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                var focusableElements = form.querySelectorAll('input, select, textarea');
+                var index = Array.prototype.indexOf.call(focusableElements, document.activeElement);
+                if (index > -1 && index < focusableElements.length - 1) {
+                    focusableElements[index + 1].focus();
+                } else {
+                    focusableElements[0].focus();
+                }
+            }
+        });
+
+        $('#kargoguncelleform').on('submit', function (e) {
+            e.preventDefault();
+            var form = $(this);
+            var actionUrl = '/KargoFirma/Guncelle';
+
+            $.ajax({
+                type: 'POST',
+                url: actionUrl,
+                data: form.serialize(),
+                success: function (response) {
+                    window.location.href = '/KargoFirma/Listele';
+                },
+                error: function (xhr, status, error) {
+                    alert("Güncelleme sırasında bir hata oluştu.");
+                }
+            });
+        });
+    });
+</script>
